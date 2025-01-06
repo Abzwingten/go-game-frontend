@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function fetchGameState() {
         if (!gameID) return;
 
-        fetch('/game-state?' + new URLSearchParams({ 'gameID': gameID.toString() }))
+        fetch('https://abzwingten.github.io/go-game-frontend/game-state?' + new URLSearchParams({ 'gameID': gameID.toString() }))
         .then(response => response.json())
         .then(data => {
             if (data.error) {
@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function authenticateUser() {
         const initData = window.Telegram.WebApp.initData;
         // Send initData to the backend for validation
-        fetch('/auth', {
+        fetch('https://abzwingten.github.io/go-game-frontend/auth', {
             method: 'POST',
             body: new URLSearchParams({ 'initData': initData }),
             headers: {
@@ -181,7 +181,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function startNewGame() {
         // Send a request to the backend to start a new game
-        fetch('/start-game', {
+        fetch('https://abzwingten.github.io/go-game-frontend/start-game', {
             method: 'POST',
             body: new URLSearchParams({
                 'blackPlayerID': playerID.toString(),
@@ -222,7 +222,7 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
         // Send move to backend
-        fetch('/make-move', {
+        fetch('https://abzwingten.github.io/go-game-frontend/make-move', {
             method: 'POST',
             body: new URLSearchParams({
                 'gameID': gameID.toString(),
@@ -258,7 +258,7 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
         // Send pass action to backend
-        fetch('/make-move', {
+        fetch('https://abzwingten.github.io/go-game-frontend/make-move', {
             method: 'POST',
             body: new URLSearchParams({
                 'gameID': gameID.toString(),
@@ -292,7 +292,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         let ruleSet = document.getElementById('scoring-rule').value;
         // Send request to backend to count score
-        fetch('/count-score', {
+        fetch('https://abzwingten.github.io/go-game-frontend/count-score', {
             method: 'POST',
             body: new URLSearchParams({
                 'gameID': gameID.toString(),
@@ -322,7 +322,7 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
         // Request SGF data from backend
-        fetch('/game-history?' + new URLSearchParams({ 'gameID': gameID.toString() }))
+        fetch('https://abzwingten.github.io/go-game-frontend/game-history?' + new URLSearchParams({ 'gameID': gameID.toString() }))
         .then(response => response.text())
         .then(sgfData => {
             // Trigger download of SGF file
