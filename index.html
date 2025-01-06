@@ -1,0 +1,42 @@
+
+<!-- frontend/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Go Game</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Telegram Web Apps SDK -->
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- Game Area -->
+        <div id="game-area">
+            <canvas id="go-board" width="600" height="600"></canvas>
+        </div>
+
+        <!-- Game Info -->
+        <div id="game-info">
+            <p id="player-info">Player: <span id="player-name"></span></p>
+            <p id="turn-info">Turn: <span id="turn-player"></span></p>
+            <button id="pass-button">Pass</button>
+        </div>
+
+        <!-- Controls -->
+        <div id="controls">
+            <button id="start-game-button">Start New Game</button>
+            <button id="export-sgf-button">Export SGF</button>
+            <select id="scoring-rule">
+                <option value="Chinese">Chinese Rules</option>
+                <option value="Japanese">Japanese Rules</option>
+                <option value="Korean">Korean Rules</option>
+            </select>
+            <button id="score-button">Count Score</button>
+        </div>
+    </div>
+
+    <!-- Include the script at the end of the body -->
+    <script src="script.js"></script>
+</body>
+</html>
